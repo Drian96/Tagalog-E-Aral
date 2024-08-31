@@ -1,0 +1,183 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Galindo', cursive;
+    list-style: none;
+    text-decoration: none;
+}
+:root{      /*color palette*/
+    --blue-color: #0D1282;
+    --red-color: #D71313;
+    --yellow-color: #F0DE36;
+    --white-color: #EEEDED;
+}
+body{
+    background-image: url("/profile/image/BBG.jpg");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 100px;
+
+}
+.mini-title{
+    margin-left: 10%;
+}
+.tag, .alog, .E-Aral{
+    font-size: 30px;
+    font-weight: 900;
+    word-wrap: break-word;
+    -webkit-text-stroke: 0.8px black;
+}
+.tag {
+    color: var(--blue-color);
+}
+.alog {
+    color: var(--red-color);
+}
+.E-Aral {
+    color: var(--yellow-color);
+}
+/********star design*******/
+.star-container {
+    display: flex;
+    align-items: center;
+    padding: 5px 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #9DD9F3;
+}
+.star-item {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.star-icon {
+    width: 28px; 
+    height: auto; 
+    margin-right: 10px;
+}
+.star-text {
+    font-size: 25px;
+    color: var(--yellow-color);
+    -webkit-text-stroke: 0.8px black;
+}
+
+/******theme & menu******/
+.girl-icon{
+    width: 70px;
+    height: auto;
+}
+.menu-icon{
+    width: 30px;
+    height: auto;
+}
+
+/*******profile*******/
+.main-profile {
+    padding: 100px;
+    /*border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);*/
+    text-align: left;
+    width: 60%;
+    height: auto;
+    margin-top: 10px;
+}
+.profile-pic h1{
+    text-align: center;
+    margin-bottom: 15px;
+}
+.content-wrapper {
+    display: flex;
+    align-items: center;
+}
+.profile-pic img {
+    width: 300px;
+    height: auto;
+    margin-right: 20px;
+}
+.username{
+    margin-bottom: 30px;
+}
+.badges h3, .profile-pic h1{
+    color: #0D1282;
+    margin-bottom: 5px;
+}
+.badges {
+    margin-top: 10px;
+}
+.badge-container {
+    background-color: var(--blue-color);
+    border-radius: 15px;
+    display: flex;
+    gap: 30px;
+    padding: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    width: auto; 
+    box-sizing: border-box;
+}
+.container {
+    padding: 7px;
+    text-align: center;
+    max-width: 300px;
+    width: 20%;
+    transition: transform 0.3s;
+    color: var(--yellow-color);
+}
+.container:hover{
+    transform: scale(1.05);
+}
+.container-image {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.star{
+    width: 25px;
+    height: auto;
+}
+.text-with-star {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-with-star h2 {
+    margin: 0;
+    margin-right: 5px;
+}
+
+.easy-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(0, 202, 0);
+}
+.average-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: rgb(137, 137, 235);
+}
+.hard-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--red-color);
+}
