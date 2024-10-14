@@ -22,7 +22,7 @@ $result = $conn->query($sql);
         <?php include('../css/style.css'); ?>
 
         body {
-            background-image: url("../image/BG.png");
+            background-image: url("../image/animals-bg.jpg");
             background-position: center;
             background-size: cover;
             height: 100vh;
