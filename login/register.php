@@ -1,11 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Register</title>
-    <link rel="stylesheet" href="../css/login.css">
-</head>
+<?php include ('head.php')?>
 
 <body>
     
@@ -66,7 +59,7 @@
         ?>
 
         <header>Sign Up</header>
-        <form action="" method="post">
+        <form action="" method="post" id="registrationForm">
             <div class="field input">
                 <label for="username">Username</label>
                 <input type="text" name="username" id="username" autocomplete="off" required placeholder="Child Nickname">
@@ -80,11 +73,15 @@
             <div class="field input">
                 <label for="password">Password</label>
                 <input type="password" name="password" id="password" autocomplete="off" required>
+                <span class="toggle-password" onclick="togglePassword('password')">👁️</span>
+                <div id="password-warning" class="validation-warning"></div> <!-- Real-time validation -->
             </div>
 
             <div class="field input">
                 <label for="confirm_password">Confirm Password</label>
                 <input type="password" name="confirm_password" id="confirm_password" autocomplete="off" required>
+                <span class="toggle-password" onclick="togglePassword('confirm_password')">👁️</span>
+                <div id="confirm-password-warning" class="validation-warning"></div> <!-- Real-time match warning -->
             </div>
 
             <div class="field">
@@ -99,6 +96,8 @@
         <?php } ?>
 
     </div>
+
+    <script src="login.js"></script>
 
 </body>
 </html>

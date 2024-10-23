@@ -94,3 +94,19 @@ body{
     width: 250px;
     height: auto;
 }
+
+/*register*/
+.field {
+    position: relative;
+}
+.toggle-password {
+    position: absolute;
+    right: 10px;
+    top: 35px;
+    cursor: pointer;
+}
+.validation-warning {
+    color: red;
+    font-size: 12px;
+    margin-top: 5px;
+}
