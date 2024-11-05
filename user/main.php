@@ -139,6 +139,7 @@
         .challenge-button:hover{
             filter: brightness(0.80);
         }
+        
         .mini-title {
             margin-left: 10%;
         }

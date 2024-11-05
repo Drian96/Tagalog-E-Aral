@@ -31,7 +31,7 @@
 
                        // Redirect based on user role
                        if($row['is_admin'] == 1){
-                           header("Location: ../admin/Amain.php"); // Admin area
+                           header("Location: ../Fadmin/main.php"); // Admin area
                        } else {
                            header("Location: ../user/main.php"); // Regular user area
                        }
