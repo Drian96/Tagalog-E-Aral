@@ -1,2 +1,11 @@
-uploads/learn/audio/
-uploads/learn/image/
+# Ignore all files inside audio and images folders
+uploads/challenge/audio/*
+uploads/challenge/images/*
+uploads/learn/audio/*
+uploads/learn/images/*
+
+# Allow folders by including .gitkeep files or any other folder-level tracking
+!uploads/challenge/audio/.gitkeep
+!uploads/challenge/images/.gitkeep
+!uploads/learn/audio/.gitkeep
+!uploads/learn/images/.gitkeep
