@@ -79,7 +79,7 @@
 
         <div class="container">
             <a href="average.php">
-                <img src="../image/average.jpg" alt="Average-Image" class="container-image">
+                <img src="../image/average.png" alt="Average-Image" class="container-image">
                 <button class="container-button">Average<br>(Katamtaman)</button>
             </a>
         </div>

@@ -67,7 +67,7 @@ $result = $conn->query($sql);
 
     <header>
         <div class="mini-title">
-            <a href="Alearn.php">
+            <a href="learn.php">
                 <div class="title-content">
                     <img src="../image/backArrow.png" alt="back-button">
                     <h1>Tagalog E-Aral</h1>

@@ -24,7 +24,6 @@ CREATE TABLE questions (
     choice1 VARCHAR(55) NOT NULL,
     choice2 VARCHAR(55) NOT NULL,
     choice3 VARCHAR(55) NOT NULL,
-    choice4 VARCHAR(55) NOT NULL,
     correctChoice INT NOT NULL, 
     starsValue INT CHECK (starsValue BETWEEN 1 AND 3)
 );

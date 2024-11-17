@@ -12,7 +12,7 @@
     --white-color: #EEEDED;
 }
 body {
-    background-image: url("../Image/BGG.png");
+    background-image: url("../Image/BG.png");
     background-position: center;
     background-size: cover;
     height: 100vh;
@@ -48,7 +48,7 @@ header{
 
 .mini-title img {
     margin-top: 5px;
-    width: 50px;
+    width: 105px;
     height: auto;
 }
 /***menu for logout**/

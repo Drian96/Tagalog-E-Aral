@@ -21,7 +21,7 @@
             --white-color: #EEEDED;
         }
         body {
-            background-image: url("../Image/BGG.png");
+            background-image: url("../Image/BG.png");
             background-position: center;
             background-size: cover;
             height: 100vh;
@@ -249,7 +249,7 @@
         
         <a href="boy.php">
             <div class="profile">
-                <img class="profile-icon" src="../image/PLogo.png" alt="Profile Icon"/>
+                <img class="profile-icon" src="../image/profile-logo.png" alt="Profile Icon"/>
                 <h2>Profile</h2>   
             </div>
         </a>
