@@ -3,6 +3,8 @@ CREATE TABLE users(
     Username varchar(55),
     Email varchar(55),
     Password varchar(255),
+    verified BOOLEAN DEFAULT FALSE,
+    verificationCode VARCHAR(6),
     isAdmin TINYINT(1) DEFAULT 0,
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );

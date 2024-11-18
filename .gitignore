@@ -9,3 +9,5 @@ uploads/learn/images/*
 !uploads/challenge/images/.gitkeep
 !uploads/learn/audio/.gitkeep
 !uploads/learn/images/.gitkeep
+
+/vendor/

@@ -39,3 +39,4 @@ confirmPasswordInput.addEventListener('input', function() {
         confirmPasswordWarning.textContent = '';
     }
 });
+
