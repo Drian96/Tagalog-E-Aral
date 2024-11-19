@@ -356,7 +356,20 @@ header{
     text-align: center;
     margin-left: 40%;
 }
-
+/*upload challenge*/
+.choice-group input[type="text"] {
+    width: 150px;
+    height: 50px;
+    padding: 7px;
+    font-size: 15px;
+}
+.upload-menu button{
+    width: 100px;
+    height: 40px;
+    margin-right: 50%;
+    align-items: center;
+    margin-left: 40%;
+}
 
 
 

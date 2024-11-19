@@ -31,7 +31,7 @@
 
                 <label for="page_value">Upload Location:</label>
                 <select name="page_value" id="page_value" required>
-                    <option value="1">Explore</option>
+                    <option value="1">Lesson 1</option>
                     <option value="2">Colors</option>
                     <option value="3">Animals</option>
                 </select>

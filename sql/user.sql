@@ -28,6 +28,7 @@ CREATE TABLE questions (
     choice3 VARCHAR(55) NOT NULL,
     correctChoice INT NOT NULL, 
     starsValue INT CHECK (starsValue BETWEEN 1 AND 3)
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
 /*UPDATE users SET is_admin = 1 WHERE Email = 'admin@gmail.com';

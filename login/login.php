@@ -30,7 +30,7 @@
                        $_SESSION['current_question'] = 0;  // This ensures the quiz starts fresh
 
                        // Redirect based on user role
-                       if($row['is_admin'] == 1){
+                       if($row['isAdmin'] == 1){
                            header("Location: ../Fadmin/main.php"); // Admin area
                        } else {
                            header("Location: ../user/main.php"); // Regular user area
