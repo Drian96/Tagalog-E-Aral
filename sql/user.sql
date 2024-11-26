@@ -31,7 +31,18 @@ CREATE TABLE questions (
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-/*UPDATE users SET is_admin = 1 WHERE Email = 'admin@gmail.com';
+CREATE TABLE quiz_history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    userId INT NOT NULL,
+    score INT NOT NULL,
+    starsEarned INT NOT NULL,
+    difficultyLevel ENUM('easy', 'average', 'hard'),
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (userId) REFERENCES users(Id)
+);
+
+/*
+UPDATE users SET isAdmin = 1 WHERE Email = 'earaltagalog@gmail.com';
 
 DROP TABLE table_name;
 
