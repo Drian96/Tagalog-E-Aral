@@ -115,6 +115,7 @@ body {
     height: auto;
 }
 .menu-icon{
+    cursor: pointer;
     width: 30px;
     height: auto;
     margin-right: 50px;
@@ -197,7 +198,5 @@ body {
     margin-right: 5px;
 }
 /***assessment history***/
-.assessment-history{
-    
-}
+
 

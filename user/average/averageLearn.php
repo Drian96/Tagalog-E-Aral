@@ -24,7 +24,7 @@
             </div>
         </div>
 
-        <div class="explore-container">
+        <div class="easy-container">
             <div class="explore">
                 <img src="../../image/locked-module.png" alt="Explore Image" class="colors-image">
                 <button class="colors-button">Average Module</button>

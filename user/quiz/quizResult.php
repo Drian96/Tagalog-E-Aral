@@ -27,7 +27,7 @@ if ($totalStarsEarned <= 3) {
     $levelMessage = "Welcome to Easy Level";
     $difficultyLevel = 'easy';
 } elseif ($totalStarsEarned <= 7) {
-    $nextPage = "../../user/average/average.php";
+    $nextPage = "../../user/average/averageMain.php";
     $levelMessage = "Welcome to Average Level";
     $difficultyLevel = 'average';
 } else {
@@ -82,7 +82,7 @@ $stmt->execute();
 </head>
 <body>
     <div class="quiz-result-container">
-        <h1>Quiz Completed!</h1>
+        <h1>Assessment Completed!</h1>
         <p>Your score is <strong><?php echo $totalStarsEarned; ?>/10</strong>.</p>
         <p><strong><?php echo $levelMessage; ?></strong></p>
         <p>You earned <strong><?php echo $totalStarsEarned; ?></strong> stars!</p>

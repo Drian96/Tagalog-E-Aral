@@ -15,6 +15,7 @@ CREATE TABLE learn (
     imagePath VARCHAR(255) NOT NULL,   -- Path to image in /uploads/learn/images
     audioPath VARCHAR(255) NOT NULL,   -- Path to audio in /uploads/learn/audio
     pageValue INT NOT NULL,
+    starsValue INT CHECK (starsValue BETWEEN 1 AND 3)
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 

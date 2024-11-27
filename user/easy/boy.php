@@ -10,6 +10,15 @@ if (!isset($_SESSION['id'])) {
 
 $userId = $_SESSION['id'];
 
+// Fetch the user's total stars from the database
+$starsQuery = "SELECT totalStars FROM users WHERE Id = ?";
+$stmt = $con->prepare($starsQuery);
+$stmt->bind_param("i", $userId);
+$stmt->execute();
+$stmt->bind_result($totalStars);
+$stmt->fetch();
+$stmt->close();
+
 // Fetch the user's quiz history
 $quizHistoryQuery = "SELECT score, starsEarned, difficultyLevel, createdAt 
                      FROM quiz_history 
@@ -21,12 +30,12 @@ $stmt->execute();
 $result = $stmt->get_result();
 
 // Fetch username for the profile
-$query = mysqli_query($con, "SELECT Username FROM users WHERE Id = $userId");
-$res_Uname = "";
-if ($query) {
-    $user = mysqli_fetch_assoc($query);
-    $res_Uname = $user['Username'];
-}
+$query = $con->prepare("SELECT Username FROM users WHERE Id = ?");
+$query->bind_param("i", $userId);
+$query->execute();
+$query->bind_result($res_Uname);
+$query->fetch();
+$query->close();
 ?>
 
 <!DOCTYPE html>
@@ -40,7 +49,7 @@ if ($query) {
 <body>
     <header>
         <div class="mini-title">
-            <a href="main.php">
+            <a href="easyMain.php">
                 <div class="title-content">
                     <img src="../../image/backArrow.png" alt="back-button">
                     <h1>Tagalog E-Aral</h1>
@@ -50,7 +59,7 @@ if ($query) {
 
         <div class="star-container">
             <div class="star-item">
-                <span class="star-text">0</span>
+                <span class="star-text"><?php echo $totalStars; ?></span>
             </div>
             <div class="star-item">
                 <img src="../../image/str.png" alt="Star Icon" class="star-icon">
@@ -75,7 +84,7 @@ if ($query) {
         <div class="content-wrapper">
             <div class="profile-pic">
                 <div class="username">
-                    <h1><?php echo $res_Uname; ?></h1>
+                    <h1><?php echo htmlspecialchars($res_Uname); ?></h1>
                 </div>
                 <img src="../../image/boy.png" alt="Boy" id="boy">
             </div>
@@ -161,7 +170,6 @@ if ($query) {
                 <?php endwhile; ?>
             </table>
         </div>
-
     </div>
 
     <script src="../../js/profile.js"></script>

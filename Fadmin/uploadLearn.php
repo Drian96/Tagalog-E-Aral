@@ -31,10 +31,17 @@
 
                 <label for="page_value">Upload Location:</label>
                 <select name="page_value" id="page_value" required>
-                    <option value="1">Lesson 1</option>
-                    <option value="2">Colors</option>
+                    <option value="1">Letters</option>
+                    <option value="2">Numbers</option>
+                    <option value="3">Colors</option>
+                    <option value="3">Explore</option>
                     <option value="3">Animals</option>
                 </select>
+
+                <br><br>
+                <label>Stars Value (1 to 3):</label>
+                <input type="number" name="starsValue" min="1" max="3" required><br><br>
+                
                 <br><br>
                 <div class="uploadButton">
                     <input type="submit" value="Upload">
