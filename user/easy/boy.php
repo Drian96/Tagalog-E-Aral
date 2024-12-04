@@ -10,7 +10,7 @@ if (!isset($_SESSION['id'])) {
 
 $userId = $_SESSION['id'];
 
-// Fetch the user's total stars from the database
+// Fetch the user's total stars
 $starsQuery = "SELECT totalStars FROM users WHERE Id = ?";
 $stmt = $con->prepare($starsQuery);
 $stmt->bind_param("i", $userId);
@@ -25,9 +25,14 @@ $quizHistoryQuery = "SELECT score, starsEarned, difficultyLevel, createdAt
                      WHERE userId = ? 
                      ORDER BY createdAt DESC";
 $stmt = $con->prepare($quizHistoryQuery);
-$stmt->bind_param("i", $userId);
-$stmt->execute();
-$result = $stmt->get_result();
+
+if ($stmt) {
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $result = $stmt->get_result();
+} else {
+    echo "<p>Error preparing statement: " . $con->error . "</p>";
+}
 
 // Fetch username for the profile
 $query = $con->prepare("SELECT Username FROM users WHERE Id = ?");
@@ -36,6 +41,12 @@ $query->execute();
 $query->bind_result($res_Uname);
 $query->fetch();
 $query->close();
+
+// Fetch all badges
+$badgesQuery = "SELECT id, name, requiredStars, imagePath FROM badges";
+$badgesResult = $con->query($badgesQuery);
+
+$lockedBadgeImage = "../../uploads/badges/locked.jpg"; // Default locked badge image
 ?>
 
 <!DOCTYPE html>
@@ -72,7 +83,6 @@ $query->close();
 
         <div class="menu">
             <img class="menu-icon" src="../../image/menu-icon.png" alt="menu-icon" onclick="toggleMenu()"/>
-            <!-- Dropdown Menu -->
             <div class="dropdown-menu" id="profileMenu">
                 <a href="../../login/edit.php">Edit Profile</a>
                 <a href="../../p/logout.php">Logout</a>
@@ -91,66 +101,38 @@ $query->close();
 
             <div class="achievements-and-badges">
                 <div class="badges">
-                    <h3>Achievements</h3>
-                    <div class="badge-container">
-                        <div class="container">
-                            <img src="../../image/qCircle.jpg" alt="Learn Image" class="container-image">
-                            <div class="easy-text">
-                                <h2 class="container-button">Easy</h2>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <img src="../../image/qCircle.jpg" alt="Challenge Image" class="container-image">
-                            <div class="average-text">
-                                <h2 class="container-button">Average</h2>
-                            </div>
-                        </div>
-                        <div class="container">
-                            <img src="../../image/qCircle.jpg" alt="Challenge Image" class="container-image">
-                            <div class="hard-text">
-                                <h2 class="container-button">Hard</h2>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="badges">
                     <h3>Badges</h3>
                     <div class="badge-container">
-                        <div class="container">
-                            <img src="../../image/qCircle.jpg" alt="Learn Image" class="container-image">
-                            <div class="text-with-star">
-                                <h2 class="container-button">10</h2>
-                                <img src="../../image/str.png" alt="star" class="star">
+                        <?php while ($badge = $badgesResult->fetch_assoc()):
+                            $userHasBadgeQuery = "SELECT 1 FROM user_badges WHERE userId = ? AND badgeId = ?";
+                            $stmt = $con->prepare($userHasBadgeQuery);
+                            $stmt->bind_param("ii", $userId, $badge['id']);
+                            $stmt->execute();
+                            $stmt->store_result();
+                            $hasBadge = $stmt->num_rows > 0;
+                            $stmt->close();
+                        ?>
+                            <div class="container" 
+                                 data-badge-id="<?php echo $badge['id']; ?>" 
+                                 data-badge-name="<?php echo htmlspecialchars($badge['name']); ?>" 
+                                 data-required-stars="<?php echo $badge['requiredStars']; ?>" 
+                                 data-unlocked="<?php echo $hasBadge ? 'true' : 'false'; ?>"
+                                 onclick="openBadgeModal(this)">
+                                <img src="<?php echo $hasBadge ? '../../' . $badge['imagePath'] : $lockedBadgeImage; ?>" 
+                                     alt="<?php echo htmlspecialchars($badge['name']); ?>" 
+                                     class="container-image" />
+                                <h4><?php echo htmlspecialchars($badge['name']); ?></h4>
+                                <div class="text-with-star">
+                                    <h2 class="container-button"><?php echo $badge['requiredStars']; ?></h2>
+                                    <img src="../../image/str.png" alt="star" class="star">
+                                </div>
                             </div>
-                        </div>
-                        <div class="container">
-                            <img src="../../image/qCircle.jpg" alt="Challenge Image" class="container-image">
-                            <div class="text-with-star">
-                                <h2 class="container-button">20</h2>
-                                <img src="../../image/str.png" alt="star" class="star">
-                            </div>
-                        </div>
-                        <div class="container">
-                            <img src="../../image/qCircle.jpg" alt="Challenge Image" class="container-image">
-                            <div class="text-with-star">
-                                <h2 class="container-button">30</h2>
-                                <img src="../../image/str.png" alt="star" class="star">
-                            </div>
-                        </div>
-                        <div class="container">
-                            <img src="../../image/qCircle.jpg" alt="Challenge Image" class="container-image">
-                            <div class="text-with-star">
-                                <h2 class="container-button">40</h2>
-                                <img src="../../image/str.png" alt="star" class="star">
-                            </div>
-                        </div>
+                        <?php endwhile; ?>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Assessment History Section -->
         <div class="assessment-history">
             <h3>Assessment History</h3>
             <table border="1">
@@ -160,15 +142,27 @@ $query->close();
                     <th>Knowledge Level</th>
                     <th>Date</th>
                 </tr>
-                <?php while ($row = $result->fetch_assoc()): ?>
-                    <tr>
-                        <td><?php echo $row['score']; ?>/10</td>
-                        <td><?php echo $row['starsEarned']; ?></td>
-                        <td><?php echo ucfirst($row['difficultyLevel']); ?></td>
-                        <td><?php echo date("F j, Y, g:i a", strtotime($row['createdAt'])); ?></td>
-                    </tr>
-                <?php endwhile; ?>
+                <?php if ($result): ?>
+                    <?php while ($row = $result->fetch_assoc()): ?>
+                        <tr>
+                            <td><?php echo $row['score']; ?>/10</td>
+                            <td><?php echo $row['starsEarned']; ?></td>
+                            <td><?php echo ucfirst($row['difficultyLevel']); ?></td>
+                            <td><?php echo date("F j, Y, g:i a", strtotime($row['createdAt'])); ?></td>
+                        </tr>
+                    <?php endwhile; ?>
+                <?php endif; ?>
             </table>
+        </div>
+    </div>
+
+    <div id="badgeModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeBadgeModal()">&times;</span>
+            <h2 id="modalBadgeName"></h2>
+            <p id="modalBadgeStars"></p>
+            <button id="unlockButton" onclick="unlockBadge()">Unlock</button>
+            <p>Press the unlock button to unlock the badge.</p>
         </div>
     </div>
 

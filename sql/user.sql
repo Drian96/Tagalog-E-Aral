@@ -41,6 +41,23 @@ CREATE TABLE quiz_history (
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     FOREIGN KEY (userId) REFERENCES users(Id)
 );
+CREATE TABLE badges (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    requiredStars INT NOT NULL,
+    imagePath VARCHAR(255) -- Path to badges in /uploads/badges
+);
+
+CREATE TABLE user_badges (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    userId INT NOT NULL,
+    badgeId INT NOT NULL,
+    isUnlocked BOOLEAN DEFAULT FALSE,
+    FOREIGN KEY (userId) REFERENCES users(Id) ON DELETE CASCADE,
+    FOREIGN KEY (badgeId) REFERENCES badges(id) ON DELETE CASCADE
+);
+
+ALTER TABLE users ADD COLUMN totalStars INT DEFAULT 0;
 
 /*
 UPDATE users SET isAdmin = 1 WHERE Email = 'earaltagalog@gmail.com';
