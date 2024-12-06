@@ -59,6 +59,17 @@ CREATE TABLE user_badges (
 
 ALTER TABLE users ADD COLUMN totalStars INT DEFAULT 0;
 
+CREATE TABLE daily_quiz_history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    userId INT NOT NULL,
+    score INT NOT NULL,
+    starsEarned INT NOT NULL,
+    difficultyLevel ENUM('easy', 'average', 'hard'),
+    date DATE NOT NULL,
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (userId) REFERENCES users(Id)
+);
+
 /*
 UPDATE users SET isAdmin = 1 WHERE Email = 'earaltagalog@gmail.com';
 

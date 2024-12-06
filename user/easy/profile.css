@@ -78,10 +78,11 @@ body {
     background-image: url("../../Image/boy-bg.jpg");
     background-position: center;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 /********star design*******/
 .star-container {
@@ -124,14 +125,12 @@ body {
 /*******profile*******/
 .main-profile {
     padding: 100px;
-
-    /*border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);*/
     text-align: left;
     width: 60%;
     height: auto;
-    margin-top: 5%;
+    margin-top: 2%;
 }
+
 .profile-pic h1{
     text-align: center;
     margin-bottom: 15px;
@@ -197,13 +196,8 @@ body {
     margin: 0;
     margin-right: 5px;
 }
-/***assessment history***/
 
-
-
-
-/**badge**/
-/* Modal container */
+/* badge* Modal container */
 .modal {
     display: none;
     position: fixed;
@@ -215,17 +209,15 @@ body {
     overflow: auto;
     background-color: rgba(0, 0, 0, 0.5);
 }
-
 /* Modal content */
 .modal-content {
-    background-color: white;
+    background-color: var(--white-color);
     margin: 15% auto;
     padding: 20px;
     border-radius: 10px;
-    width: 50%;
+    width: 30%;
     text-align: center;
 }
-
 /* Close button */
 .close {
     color: #aaa;
@@ -234,12 +226,126 @@ body {
     font-weight: bold;
     cursor: pointer;
 }
-
 .close:hover,
 .close:focus {
     color: black;
     text-decoration: none;
 }
+/**unlock pop up**/
+#unlockButton{
+    border: none;
+    padding: 15px 15px;
+    font-size: 1.2em;
+    color: white;
+    background-color:var(--red-color);
+    border-radius: 10px;
+    margin-top: 40px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+#unlockButton:hover{
+    filter: brightness(0.80);
+}
 
+/* Popup container with animation */
+.custom-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    background-color: var(--white-color);
+    border: 2px solid var(--red-color);
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    opacity: 0;
+    animation: popupFadeIn 0.3s ease-out forwards;
+}
 
+.custom-popup p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+}
 
+.custom-popup button {
+    background-color: #ffcc00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.custom-popup button:hover {
+    background-color: #e6b800;
+}
+
+/* Fade-in and scale-up animation */
+@keyframes popupFadeIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Fade-out animation for when popup is removed */
+@keyframes popupFadeOut {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+}
+
+/**assessment history***/
+.assessment-history{
+    color: white;
+    background-color: var(--blue-color);
+    border-radius: 15px;
+    padding: 15px;
+}
+.assessment-history h3{
+    text-align: center;
+    margin-bottom: 7px;
+}
+.table-container {
+    max-height: 300px; /* Set height to limit visible rows (adjust as needed) */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ccc; /* Optional: Add a border around the scrollable area */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better appearance */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #00c3ff;
+}
+
+th {
+    background-color: #00357a; /* Light gray for headers */
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #00c3ff; /* Highlight row on hover */
+}
+.footer{
+    margin-top: 20px;
+}

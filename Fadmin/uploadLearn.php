@@ -34,8 +34,8 @@
                     <option value="1">Letters</option>
                     <option value="2">Numbers</option>
                     <option value="3">Colors</option>
-                    <option value="3">Explore</option>
-                    <option value="3">Animals</option>
+                    <option value="4">Explore</option>
+                    <option value="5">Animals</option>
                 </select>
 
                 <br><br>

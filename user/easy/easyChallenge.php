@@ -17,7 +17,7 @@
 
         <div class="easy-container">
             <div class="explore">
-                <a href="easyQuiz.php">
+                <a href="initDailyQuiz.php">
                     <img src="../../image/easy.jpg" alt="Explore Image" class="explore-image">
                     <button class="explore-button">Easy Daily Quiz</button>
                 </a>
