@@ -47,18 +47,10 @@ $currentQuestion = $questions[$currentIndex];
             transform: scale(1.02);
             filter: brightness(0.80);
         }
-        .choice-btn1 {
-            background-color: var(--blue-color);
-        }
-        .choice-btn2 {
-            background-color: var(--red-color);
-        }
-        .choice-btn3 {
-            background-color: #10c510;
-        }
-        .choice-btn1 h2, .choice-btn2 h2, .choice-btn3 h2 {
-            color: white;
-        }
+        .choice-btn1 { background-color: var(--blue-color); }
+        .choice-btn2 { background-color: var(--red-color); }
+        .choice-btn3 { background-color: #10c510; }
+        .choice-btn1 h2, .choice-btn2 h2, .choice-btn3 h2 { color: white; }
 
         #popup {
             display: none;
@@ -74,14 +66,8 @@ $currentQuestion = $questions[$currentIndex];
             font-size: 1.2rem;
             font-weight: bold;
         }
-
-        #popup.correct {
-            color: green;
-        }
-
-        #popup.wrong {
-            color: red;
-        }
+        #popup.correct { color: green; }
+        #popup.wrong { color: red; }
     </style>
     <script>
         function checkAnswer(selectedChoice) {
@@ -96,7 +82,7 @@ $currentQuestion = $questions[$currentIndex];
                 popup.className = 'correct';
                 popup.style.display = "block";
                 popup.onclick = function () {
-                    window.location.href = "processDailyAnswer.php?choice=" + selectedChoice;
+                    window.location.href = "processDailyAnswer.php?correct=1";
                 };
             } else {
                 wrongAudio.play(); // Play wrong audio
@@ -104,7 +90,7 @@ $currentQuestion = $questions[$currentIndex];
                 popup.className = 'wrong';
                 popup.style.display = "block";
                 setTimeout(function () {
-                    window.location.href = "processDailyAnswer.php?choice=" + selectedChoice;
+                    window.location.href = "processDailyAnswer.php?correct=0";
                 }, 1500);
             }
         }
@@ -126,17 +112,15 @@ $currentQuestion = $questions[$currentIndex];
                 </div>
             </a>
         </div>
-
         <div class="star-container">
             <div class="star-item">
-                <span class="star-text"><?php echo $_SESSION['total_score']; ?></span>
+                <span class="star-text"><?php echo $_SESSION['daily_total_score']; ?></span>
             </div>
             <div class="star-item">
                 <img src="../../image/star.png" alt="Star Icon" class="star-icon">
             </div>
         </div>
     </header>
-
     <div class="quiz-container">
         <div class="question">
             <p><?php echo $currentQuestion['questionText']; ?></p>
@@ -147,18 +131,17 @@ $currentQuestion = $questions[$currentIndex];
         <audio id="audio" src="<?php echo '../' . $currentQuestion['audioPath']; ?>"></audio>
 
         <div class="choices">
-            <button class="choice-btn1" id="choice1" onclick="checkAnswer(1)">
+            <button class="choice-btn1" onclick="checkAnswer(1)">
                 <h2><?php echo $currentQuestion['choice1']; ?></h2>
             </button>
-            <button class="choice-btn2" id="choice2" onclick="checkAnswer(2)">
+            <button class="choice-btn2" onclick="checkAnswer(2)">
                 <h2><?php echo $currentQuestion['choice2']; ?></h2>
             </button>
-            <button class="choice-btn3" id="choice3" onclick="checkAnswer(3)">
+            <button class="choice-btn3" onclick="checkAnswer(3)">
                 <h2><?php echo $currentQuestion['choice3']; ?></h2>
             </button>
         </div>
     </div>
-
     <div id="popup"></div>
 </body>
 </html>
