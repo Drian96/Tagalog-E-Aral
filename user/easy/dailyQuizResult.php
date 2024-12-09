@@ -32,12 +32,15 @@ $_SESSION['totalStars'] += $totalStarsEarned;
 <html lang="en">
 <head>
     <title>Daily Quiz Result</title>
+    <link rel="stylesheet" href="quiz.css">
 </head>
 <body>
-    <h1>Daily Quiz Completed!</h1>
-    <p>Your score: <strong><?php echo $totalStarsEarned; ?>/5</strong></p>
-    <p>Stars earned: <strong><?php echo $totalStarsEarned; ?></strong></p>
-    <p>Total stars: <strong><?php echo $_SESSION['totalStars']; ?></strong></p>
-    <a href="easyChallenge.php">Okay</a>
+    <div class="dqResult">
+        <h1>Daily Quiz Completed!</h1>
+        <p>Your score: <strong><?php echo $totalStarsEarned; ?>/5</strong></p>
+        <p>Stars earned: <strong><?php echo $totalStarsEarned; ?></strong></p>
+        <p>Total stars: <strong><?php echo $_SESSION['totalStars']; ?></strong></p>
+        <a href="easyChallenge.php"><button>Okay</button></a>
+    </div>
 </body>
 </html>

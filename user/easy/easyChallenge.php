@@ -48,14 +48,14 @@ if ($result->num_rows > 0) {
             </div>
         </div>
 
-        <div class="explore-container">
+        <div class="explore-container" id="averageLocked">
             <div class="explore">
                 <img src="../../image/average-locked.png" alt="Explore Image" class="colors-image">
                 <button class="colors-button">Average Daily Quiz</button>
             </div>
         </div>
 
-        <div class="explore-container">
+        <div class="explore-container" id="hardLocked">
             <div class="explore">
                 <img src="../../image/hard-locked.png" alt="Explore Image" class="animals-image">
                 <button class="animals-button">Hard Daily Quiz</button>
@@ -66,25 +66,44 @@ if ($result->num_rows > 0) {
     <!-- Pop-up elements -->
     <div class="popup-overlay" id="popupOverlay"></div>
     <div class="popup" id="popupMessage">
-        <p>You have already taken the Easy Daily Quiz today. Please try again tomorrow!</p>
+        <p id="popupText"></p>
         <button id="closePopup">Okay</button>
     </div>
 
     <script>
         const popupOverlay = document.getElementById('popupOverlay');
         const popupMessage = document.getElementById('popupMessage');
-        const dailyQuizButton = document.getElementById('dailyQuizButton');
+        const popupText = document.getElementById('popupText');
         const closePopup = document.getElementById('closePopup');
 
-        // Show the pop-up if the quiz button is clicked (only for taken quizzes)
+        // Button IDs for locked categories
+        const averageLocked = document.getElementById('averageLocked');
+        const hardLocked = document.getElementById('hardLocked');
+        const dailyQuizButton = document.getElementById('dailyQuizButton');
+
+        // Pop-up logic for locked categories
+        const showPopup = (message) => {
+            popupText.textContent = message;
+            popupOverlay.style.display = 'block';
+            popupMessage.style.display = 'block';
+        };
+
+        averageLocked.addEventListener('click', () => {
+            showPopup('Get a good score in Knowledge Check to unlock this daily quiz!');
+        });
+
+        hardLocked.addEventListener('click', () => {
+            showPopup('Get a good score in Knowledge Check to unlock this daily quiz!');
+        });
+
+        // Pop-up logic for Easy Daily Quiz already taken
         if (dailyQuizButton) {
             dailyQuizButton.addEventListener('click', () => {
-                popupOverlay.style.display = 'block';
-                popupMessage.style.display = 'block';
+                showPopup('You have already taken the Easy Daily Quiz today. Please try again tomorrow!');
             });
         }
 
-        // Close the pop-up when the user clicks "Okay"
+        // Close the pop-up
         closePopup.addEventListener('click', () => {
             popupOverlay.style.display = 'none';
             popupMessage.style.display = 'none';

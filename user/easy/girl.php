@@ -34,6 +34,21 @@ if ($stmt) {
     echo "<p>Error preparing statement: " . $con->error . "</p>";
 }
 
+// Fetch the user's daily quiz history
+$dailyQuizHistoryQuery = "SELECT score, starsEarned, difficultyLevel, date 
+                          FROM daily_quiz_history 
+                          WHERE userId = ? 
+                          ORDER BY date DESC";
+$stmt = $con->prepare($dailyQuizHistoryQuery);
+
+if ($stmt) {
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $dailyQuizResult = $stmt->get_result();
+} else {
+    echo "<p>Error preparing statement: " . $con->error . "</p>";
+}
+
 // Fetch username for the profile
 $query = $con->prepare("SELECT Username FROM users WHERE Id = ?");
 $query->bind_param("i", $userId);
@@ -55,42 +70,9 @@ $lockedBadgeImage = "../../uploads/badges/locked.jpg"; // Default locked badge i
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <link rel="stylesheet" href="profile.css">
-    <style>
-        body{
-            background-image: url("../../image/girl-bg.jpg");
-        }
-        /********star design*******/
-        .star-container {
-            background-color: #FFA1A1;
-        }
-        /******theme & menu******/
-        .girl-icon{
-            width: 70px;
-            height: auto;
-        }
-        .menu-icon{
-            width: 30px;
-            height: auto;
-        }
-        /*******profile*******/
-        .profile-pic img {
-            width: 300px;
-            height: auto;
-            margin-right: 20px;
-        }
-        .username{
-            margin-bottom: 30px;
-        }
-        .badges h3, .profile-pic h1{
-            color: #EB00D3;
-            margin-bottom: 5px;
-        }
-        .badge-container {
-            background-color: #b44799;
-        }
-    </style>
+    <link rel="stylesheet" href="girl.css">
 </head>
+
 <body>
     <header>
         <div class="mini-title">
@@ -168,28 +150,53 @@ $lockedBadgeImage = "../../uploads/badges/locked.jpg"; // Default locked badge i
         </div>
 
         <div class="assessment-history">
-        <h3>Assessment History</h3>
-        <div class="table-container">
-            <table border="1">
-                <tr>
-                    <th>Score</th>
-                    <th>Stars Earned</th>
-                    <th>Knowledge Level</th>
-                    <th>Date</th>
-                </tr>
-                <?php if ($result): ?>
-                    <?php while ($row = $result->fetch_assoc()): ?>
-                        <tr>
-                            <td><?php echo $row['score']; ?>/10</td>
-                            <td><?php echo $row['starsEarned']; ?></td>
-                            <td><?php echo ucfirst($row['difficultyLevel']); ?></td>
-                            <td><?php echo date("F j, Y, g:i a", strtotime($row['createdAt'])); ?></td>
-                        </tr>
-                    <?php endwhile; ?>
-                <?php endif; ?>
-            </table>
+            <h3>Assessment History</h3>
+            <div class="table-container">
+                <table border="1">
+                    <tr>
+                        <th>Score</th>
+                        <th>Stars Earned</th>
+                        <th>Knowledge Level</th>
+                        <th>Date</th>
+                    </tr>
+                    <?php if ($result): ?>
+                        <?php while ($row = $result->fetch_assoc()): ?>
+                            <tr>
+                                <td><?php echo $row['score']; ?>/10</td>
+                                <td><?php echo $row['starsEarned']; ?></td>
+                                <td><?php echo ucfirst($row['difficultyLevel']); ?></td>
+                                <td><?php echo date("F j, Y, g:i a", strtotime($row['createdAt'])); ?></td>
+                            </tr>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </table>
+            </div>
         </div>
-    </div>
+          
+        <div class="assessment-history">
+            <h3>Daily Quiz History</h3>
+            <div class="table-container">
+                <table border="1">
+                    <tr>
+                        <th>Score</th>
+                        <th>Stars Earned</th>
+                        <th>Difficulty Level</th>
+                        <th>Date</th>
+                    </tr>
+                    <?php if ($dailyQuizResult): ?>
+                        <?php while ($row = $dailyQuizResult->fetch_assoc()): ?>
+                            <tr>
+                                <td><?php echo $row['score']; ?>/5</td>
+                                <td><?php echo $row['starsEarned']; ?></td>
+                                <td><?php echo ucfirst($row['difficultyLevel']); ?></td>
+                                <td><?php echo date("F j, Y", strtotime($row['date'])); ?></td>
+                            </tr>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </table>
+            </div>
+        </div>
+
     </div>
 
     <div id="badgeModal" class="modal">

@@ -11,52 +11,7 @@ $sql = "SELECT * FROM learn WHERE pageValue = $page_value AND starsValue = $star
 $result = $conn->query($sql);
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tagalog E-Aral Admin</title>
-    <link rel="stylesheet" href="../../css/style.css">
-    <style>
-        body {
-            background-image: url("../../image/explore-bg.jpg");
-            background-position: center;
-            background-size: cover;
-            height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        .container {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            max-width: 80%;
-            margin: 0 auto;
-        }
-        .overlay {
-            position: fixed;
-            display: none;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            justify-content: center;
-            align-items: center;
-            backdrop-filter: blur(10px);
-        }
-        .overlay img {
-            max-width: 90%;
-            max-height: 90%;
-        }
-        .overlay.active {
-            display: flex;
-        }
-    </style>
-</head>
+<?php include('moduleHead.php')?>
 
 <body>
     <header>

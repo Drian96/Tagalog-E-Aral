@@ -43,7 +43,7 @@
     <!-- Pop-up elements -->
         <div class="popup-overlay" id="popupOverlay"></div>
         <div class="popup" id="popupMessage">
-            <p>Get a good score in assessment to unlock this</p>
+            <p>Get a good score in Knowledge Check to unlock this module!</p>
         </div>
 
     <script>

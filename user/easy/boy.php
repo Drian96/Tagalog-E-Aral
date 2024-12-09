@@ -34,6 +34,21 @@ if ($stmt) {
     echo "<p>Error preparing statement: " . $con->error . "</p>";
 }
 
+// Fetch the user's daily quiz history
+$dailyQuizHistoryQuery = "SELECT score, starsEarned, difficultyLevel, date 
+                          FROM daily_quiz_history 
+                          WHERE userId = ? 
+                          ORDER BY date DESC";
+$stmt = $con->prepare($dailyQuizHistoryQuery);
+
+if ($stmt) {
+    $stmt->bind_param("i", $userId);
+    $stmt->execute();
+    $dailyQuizResult = $stmt->get_result();
+} else {
+    echo "<p>Error preparing statement: " . $con->error . "</p>";
+}
+
 // Fetch username for the profile
 $query = $con->prepare("SELECT Username FROM users WHERE Id = ?");
 $query->bind_param("i", $userId);
@@ -103,7 +118,7 @@ $lockedBadgeImage = "../../uploads/badges/locked.jpg"; // Default locked badge i
                 <div class="badges">
                     <h3>Badges</h3>
                     <div class="badge-container">
-                        <?php while ($badge = $badgesResult->fetch_assoc()):
+                        <?php while ($badge = $badgesResult->fetch_assoc()): 
                             $userHasBadgeQuery = "SELECT 1 FROM user_badges WHERE userId = ? AND badgeId = ?";
                             $stmt = $con->prepare($userHasBadgeQuery);
                             $stmt->bind_param("ii", $userId, $badge['id']);
@@ -157,6 +172,29 @@ $lockedBadgeImage = "../../uploads/badges/locked.jpg"; // Default locked badge i
             </div>
         </div>
 
+        <div class="assessment-history">
+            <h3>Daily Quiz History</h3>
+            <div class="table-container">
+                <table border="1">
+                    <tr>
+                        <th>Score</th>
+                        <th>Stars Earned</th>
+                        <th>Difficulty Level</th>
+                        <th>Date</th>
+                    </tr>
+                    <?php if ($dailyQuizResult): ?>
+                        <?php while ($row = $dailyQuizResult->fetch_assoc()): ?>
+                            <tr>
+                                <td><?php echo $row['score']; ?>/5</td>
+                                <td><?php echo $row['starsEarned']; ?></td>
+                                <td><?php echo ucfirst($row['difficultyLevel']); ?></td>
+                                <td><?php echo date("F j, Y", strtotime($row['date'])); ?></td>
+                            </tr>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </table>
+            </div>
+        </div>
     </div>
 
     <div id="badgeModal" class="modal">

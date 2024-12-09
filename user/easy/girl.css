@@ -75,7 +75,7 @@ header{
 }
 
 body {
-    background-image: url("../../Image/boyBG.png");
+    background-image: url("../../Image/girlBG.png");
     background-position: center;
     background-size: cover;
     min-height: 100vh;
@@ -91,7 +91,7 @@ body {
     padding: 5px 5px;
     border: 1px solid black;
     border-radius: 10px;
-    background-color: #8FD3FE;
+    background-color: #9DD9F3;
 }
 .star-item {
     display: flex;
@@ -138,7 +138,7 @@ body {
 .content-wrapper {
     display: flex;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
 }
 .profile-pic img {
     width: 300px;
@@ -149,13 +149,8 @@ body {
     margin-bottom: 30px;
 }
 .badges h3, .profile-pic h1{
-    color: white;
+    color: var(--blue-color);
     margin-bottom: 5px;
-    font-size: 30px;
-    -webkit-text-stroke: 0.8px black;
-}
-.profile-pic h1{
-    font-size: 50px;
 }
 .badges {
     margin-top: 10px;
@@ -317,7 +312,7 @@ body {
 /**assessment history***/
 .assessment-history{
     color: white;
-    background-color: var(--blue-color);
+    background-color: #d31ca5;
     border-radius: 15px;
     padding: 15px;
     margin-bottom: 30px;
@@ -342,14 +337,53 @@ table {
 th, td {
     padding: 10px;
     text-align: left;
-    border-bottom: 1px solid #00c3ff;
+    border-bottom: 1px solid #4c0080;
 }
 
 th {
-    background-color: #00357a; /* Light gray for headers */
+    background-color: #d320da; /* Light gray for headers */
     font-weight: bold;
 }
 
 tr:hover {
-    background-color: #00c3ff; /* Highlight row on hover */
+    background-color: #f837ff; /* Highlight row on hover */
+}
+.footer{
+    margin-top: 20px;
+}
+
+
+/********star design*******/
+.star-container {
+    background-color: #FEA8FF;
+}
+/******theme & menu******/
+.girl-icon{
+    width: 70px;
+    height: auto;
+}
+.menu-icon{
+    width: 30px;
+    height: auto;
+}
+/*******profile*******/
+.profile-pic img {
+    width: 300px;
+    height: auto;
+    margin-right: 20px;
+}
+.username{
+    margin-bottom: 30px;
+}
+.badge-container {
+    background-color: #d31ca5;
+}
+.badges h3, .profile-pic h1{
+    font-size: 30px;
+    color: white;
+    margin-bottom: 5px;
+    -webkit-text-stroke: 0.8px black;
+}
+.profile-pic h1{
+    font-size: 50px;
 }

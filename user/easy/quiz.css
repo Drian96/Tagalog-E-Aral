@@ -186,3 +186,27 @@ header{
     color: var(--red-color);
 
 }
+/**Daily Quiz Result***/
+.dqResult {
+    text-align: center;
+    margin: 50px auto;
+    padding: 20px;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    background-color: white;
+}
+.dqResult button {
+    border: none;
+    padding: 15px 20px;
+    font-size: 1.5em;
+    color: white;
+    background-color:var(--red-color);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+.dqResult button:hover{
+    filter: brightness(0.80);
+}
