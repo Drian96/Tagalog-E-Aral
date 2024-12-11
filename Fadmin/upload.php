@@ -14,6 +14,7 @@
     </header>
 
         <div class="uploadMain-container">
+
             <div class="uploadContainer">
                 <a href="uploadLearn.php">
                     <img src="../image/upload-icon.png" alt="Learn Image" class="uploadContainer-image">
@@ -24,9 +25,17 @@
             <div class="uploadContainer">
                 <a href="uploadChallenge.php">
                     <img src="../image/upload-icon.png" alt="Challenge Image" class="uploadChallenge-image">
-                    <button class="uploadChallenge-button">Upload on Challenge</button>
+                    <button class="uploadChallenge-button">Upload questions</button>
                 </a>
             </div>
+
+            <div class="uploadContainer">
+                <a href="badgeUpload.php">
+                    <img src="../image/upload-icon.png" alt="Learn Image" class="uploadContainer-image">
+                    <button class="uploadContainer-button">Upload badges</button>
+                </a>
+            </div>
+
         </div>
 </body>
 </html>

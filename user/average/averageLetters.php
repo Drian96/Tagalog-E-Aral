@@ -5,8 +5,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$page_value = 2;
-$stars_value = 1; // Add starsValue condition stars value means difficulty value of that obj
+$page_value = 1;
+$stars_value = 2; // Add starsValue condition stars value means difficulty value of that obj
 $sql = "SELECT * FROM learn WHERE pageValue = $page_value AND starsValue = $stars_value";
 $result = $conn->query($sql);
 ?>
@@ -15,7 +15,7 @@ $result = $conn->query($sql);
 
 <style>
     body {
-    background-image: url("../../Image/numbersBG.png");
+    background-image: url("../../Image/abc.png");
     background-position: center;
     background-size: cover;
     height: 100vh;

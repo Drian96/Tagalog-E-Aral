@@ -15,7 +15,7 @@
 
     <div class="main-container">
 
-        <div class="easy-container">
+        <div class="explore-container">
             <div class="explore">
                 <a href="easyModule.php">
                     <img src="../../image/easy-module.png" alt="Explore Image" class="explore-image">

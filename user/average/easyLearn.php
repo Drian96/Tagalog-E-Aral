@@ -4,7 +4,7 @@
 
     <header>
         <div class="mini-title">
-            <a href="easyMain.php">
+            <a href="averageMain.php">
                 <div class="title-content">
                     <img src="../../image/backArrow.png" alt="back-button">
                     <h1>Tagalog E-Aral</h1>
@@ -24,10 +24,12 @@
             </div>
         </div>
 
-        <div class="easy-container">
+        <div class="average-container">
             <div class="explore">
-                <img src="../../image/locked-module.png" alt="Explore Image" class="colors-image">
-                <button class="colors-button">Average Module</button>
+                <a href="averageModule.php">
+                    <img src="../../image/average-module.png" alt="Explore Image" class="colors-image">
+                    <button class="colors-button">Average Module</button>
+                </a>
             </div>
         </div>
 
@@ -43,7 +45,7 @@
     <!-- Pop-up elements -->
         <div class="popup-overlay" id="popupOverlay"></div>
         <div class="popup" id="popupMessage">
-            <p>Get a good score in assessment to unlock this</p>
+            <p>Get a good score in Knowledge Check to unlock this module!</p>
         </div>
 
     <script>

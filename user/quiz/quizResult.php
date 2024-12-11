@@ -82,7 +82,7 @@ $stmt->execute();
 </head>
 <body>
     <div class="quiz-result-container">
-        <h1>Assessment Completed!</h1>
+        <h1>Knowledge Check Completed!</h1>
         <p>Your score is <strong><?php echo $totalStarsEarned; ?>/10</strong>.</p>
         <p><strong><?php echo $levelMessage; ?></strong></p>
         <p>You earned <strong><?php echo $totalStarsEarned; ?></strong> stars!</p>

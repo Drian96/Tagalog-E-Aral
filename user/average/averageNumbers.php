@@ -6,7 +6,7 @@ if ($conn->connect_error) {
 }
 
 $page_value = 2;
-$stars_value = 1; // Add starsValue condition stars value means difficulty value of that obj
+$stars_value = 2; // Add starsValue condition stars value means difficulty value of that obj
 $sql = "SELECT * FROM learn WHERE pageValue = $page_value AND starsValue = $stars_value";
 $result = $conn->query($sql);
 ?>

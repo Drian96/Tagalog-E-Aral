@@ -35,10 +35,10 @@ if ($stmt) {
 }
 
 // Fetch the user's daily quiz history
-$dailyQuizHistoryQuery = "SELECT score, starsEarned, difficultyLevel, date 
+$dailyQuizHistoryQuery = "SELECT score, starsEarned, difficultyLevel, createdAt 
                           FROM daily_quiz_history 
                           WHERE userId = ? 
-                          ORDER BY date DESC";
+                          ORDER BY createdAt DESC";
 $stmt = $con->prepare($dailyQuizHistoryQuery);
 
 if ($stmt) {
@@ -75,7 +75,7 @@ $lockedBadgeImage = "../../uploads/badges/locked.jpg"; // Default locked badge i
 <body>
     <header>
         <div class="mini-title">
-            <a href="easyMain.php">
+            <a href="averageMain.php">
                 <div class="title-content">
                     <img src="../../image/backArrow.png" alt="back-button">
                     <h1>Tagalog E-Aral</h1>
@@ -188,7 +188,7 @@ $lockedBadgeImage = "../../uploads/badges/locked.jpg"; // Default locked badge i
                                 <td><?php echo $row['score']; ?>/5</td>
                                 <td><?php echo $row['starsEarned']; ?></td>
                                 <td><?php echo ucfirst($row['difficultyLevel']); ?></td>
-                                <td><?php echo date("F j, Y", strtotime($row['date'])); ?></td>
+                                <td><?php echo date("F j, Y, g:i a", strtotime($row['createdAt'])); ?></td>
                             </tr>
                         <?php endwhile; ?>
                     <?php endif; ?>

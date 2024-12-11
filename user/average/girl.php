@@ -70,12 +70,13 @@ $lockedBadgeImage = "../../uploads/badges/locked.jpg"; // Default locked badge i
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
-    <link rel="stylesheet" href="profile.css">
+    <link rel="stylesheet" href="girl.css">
 </head>
+
 <body>
     <header>
         <div class="mini-title">
-            <a href="easyMain.php">
+            <a href="averageMain.php">
                 <div class="title-content">
                     <img src="../../image/backArrow.png" alt="back-button">
                     <h1>Tagalog E-Aral</h1>
@@ -92,8 +93,8 @@ $lockedBadgeImage = "../../uploads/badges/locked.jpg"; // Default locked badge i
             </div>
         </div>
 
-        <a href="girl.php">
-            <img class="girl-icon" src="../../image/GirlIcon.png" alt="girl-icon">
+        <a href="boy.php">
+            <img class="girl-icon" src="../../image/boyIcon.png" alt="girl-icon">
         </a>
 
         <div class="menu">
@@ -111,14 +112,14 @@ $lockedBadgeImage = "../../uploads/badges/locked.jpg"; // Default locked badge i
                 <div class="username">
                     <h1><?php echo htmlspecialchars($res_Uname); ?></h1>
                 </div>
-                <img src="../../image/boy.png" alt="Boy" id="boy">
+                <img src="../../image/girl.png" alt="Boy" id="boy">
             </div>
 
             <div class="achievements-and-badges">
                 <div class="badges">
                     <h3>Badges</h3>
                     <div class="badge-container">
-                        <?php while ($badge = $badgesResult->fetch_assoc()): 
+                        <?php while ($badge = $badgesResult->fetch_assoc()):
                             $userHasBadgeQuery = "SELECT 1 FROM user_badges WHERE userId = ? AND badgeId = ?";
                             $stmt = $con->prepare($userHasBadgeQuery);
                             $stmt->bind_param("ii", $userId, $badge['id']);
@@ -171,7 +172,7 @@ $lockedBadgeImage = "../../uploads/badges/locked.jpg"; // Default locked badge i
                 </table>
             </div>
         </div>
-
+          
         <div class="assessment-history">
             <h3>Daily Quiz History</h3>
             <div class="table-container">
@@ -195,6 +196,7 @@ $lockedBadgeImage = "../../uploads/badges/locked.jpg"; // Default locked badge i
                 </table>
             </div>
         </div>
+
     </div>
 
     <div id="badgeModal" class="modal">

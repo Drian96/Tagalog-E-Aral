@@ -150,7 +150,7 @@ $lockedBadgeImage = "../../uploads/badges/locked.jpg"; // Default locked badge i
         </div>
 
         <div class="assessment-history">
-            <h3>Assessment History</h3>
+            <h3>Knowledge Check History</h3>
             <div class="table-container">
                 <table border="1">
                     <tr>

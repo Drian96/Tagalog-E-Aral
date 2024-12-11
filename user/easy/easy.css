@@ -220,7 +220,7 @@ header{
     transform: scale(1.05);
 }
 /* Card Styling */
-.explore {
+.explore{
     padding: 20px;
     text-align: center;
     max-width: 300px;
@@ -240,7 +240,6 @@ header{
     border-radius: 10px;
     margin-bottom: 20px;
 }
-
 /* Button Styling */
 .explore-button, .colors-button, .animals-button {
     border: none;

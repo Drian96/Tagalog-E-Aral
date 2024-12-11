@@ -18,7 +18,7 @@
 
         <div class="explore-container">
             <div class="explore">
-                <a href="letters.php">
+                <a href="averageLetters.php">
                     <img src="../../image/letters.png" alt="Explore Image" class="letters-image">
                     <button class="explore-button">Letters<br>(Mga Letra)</button>
                 </a>
@@ -27,7 +27,7 @@
 
         <div class="explore-container">
             <div class="explore">
-                <a href="numbers.php">
+                <a href="averageNumbers.php">
                     <img src="../../image/numbers.png" alt="Explore Image" class="numbers-image">
                     <button class="explore-button">Numbers<br>(Mga Numero)</button>
                 </a>
@@ -36,7 +36,7 @@
 
         <div class="explore-container">
             <div class="explore">
-                <a href="colors.php">
+                <a href="averageColors.php">
                     <img src="../../image/colors.png" alt="Explore Image" class="explore-image">
                     <button class="explore-button">Colors<br>(Mga Kulay)</button>
                 </a>
@@ -45,7 +45,7 @@
 
         <div class="explore-container">
             <div class="explore">
-                <a href="explore.php">
+                <a href="averageExplore.php">
                     <img src="../../image/explore.png" alt="Explore Image" class="colors-image">
                     <button class="colors-button">Explore<br>(Tuklasin)</button>
                 </a>
@@ -54,7 +54,7 @@
 
         <div class="explore-container">
             <div class="explore">
-                <a href="animals.php">
+                <a href="averageAnimals.php">
                     <img src="../../image/animals.png" alt="Explore Image" class="animals-image">
                     <button class="animals-button">Animals<br>(Mga Hayop)</button>
                 </a>

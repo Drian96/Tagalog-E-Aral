@@ -36,7 +36,7 @@ if ($result->num_rows > 0) {
             <div class="explore">
                 <?php if ($quizTaken): ?>
                     <!-- Button with pop-up if quiz already taken -->
-                    <img src="../../image/easy.jpg" alt="Explore Image" class="explore-image">
+                    <img src="../../image/average-locked.png" alt="Explore Image" class="explore-image">
                     <button class="explore-button" id="dailyQuizButton">Easy Daily Quiz</button>
                 <?php else: ?>
                     <!-- Redirect button if quiz not taken -->

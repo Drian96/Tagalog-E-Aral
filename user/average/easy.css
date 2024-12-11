@@ -79,7 +79,7 @@ header{
 
 /******profile design******/
 .profile{
-    margin-right: 20px;
+    margin-right: 30px;
     display: flex;
     align-items: center;       
 }
@@ -204,9 +204,8 @@ header{
     z-index: 999;
 }
 
-
-/********************explore**************/
-.explore-container, .easy-container {
+/************inside learn & challenge**************/
+.explore-container, .easy-container, .average-container {
     display: flex;
     gap: 40px;
     padding: 20px;
@@ -216,7 +215,7 @@ header{
     transition: transform 0.3s;
     cursor: pointer;
 }
-.explore-container:hover, .easy-container:hover{
+.explore-container:hover, .easy-container:hover, .average-container:hover{
     transform: scale(1.05);
 }
 /* Card Styling */
@@ -228,13 +227,7 @@ header{
     transition: transform 0.5s;
 }
 /* Image Styling */
-.explore-image, .colors-image, .animals-image {
-    width: 100%;
-    height: auto;
-    border-radius: 10px;
-    margin-bottom: 20px;
-}
-.letters-image, .numbers-image{
+.explore-image, .colors-image, .animals-image, .letters-image, .numbers-image {
     width: 100%;
     height: auto;
     border-radius: 10px;

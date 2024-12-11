@@ -50,7 +50,7 @@ $stmt->close();
 
     <div class="main-container">
         <div class="container">
-            <a href="averageLearn.php">
+            <a href="easyLearn.php">
                 <img src="../../image/bbook.png" alt="Learn Image" class="container-image">
                 <button class="container-button">Learn<br>(Matuto)</button>
             </a>

@@ -1,0 +1,389 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Galindo', cursive;
+    list-style: none;
+    text-decoration: none;
+}
+:root{      /*color palette*/
+    --blue-color: #0D1282;
+    --red-color: #D71313;
+    --yellow-color: #F0DE36;
+    --white-color: #EEEDED;
+}
+header{
+    position: fixed;
+    width: 100%;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: auto;
+}
+
+.mini-title {
+    margin-left: 5%;
+}
+.mini-title .title-content {
+    display: flex;
+    align-items: center; 
+    gap: 10px;
+}
+.mini-title h1 {
+    color: var(--yellow-color);
+    -webkit-text-stroke: 0.8px black;
+    margin: 0; 
+}
+
+.mini-title img {
+    margin-top: 5px;
+    width: 105px;
+    height: auto;
+}
+/***menu for logout**/
+.dropdown-menu {
+    display: none; /* Hidden by default */
+    position: absolute;
+    top: 100%; /* Position right below the profile */
+    left: 93%;
+    transform: translateX(-50%);
+    background-color: #e0e0e0;
+    padding: 10px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    border-radius: 8px;
+    z-index: 1; /* Ensure it's above other elements */
+}
+.dropdown-menu a {
+    display: block;
+    color: black;
+    text-decoration: none;
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+.dropdown-menu a:hover {
+    color: var(--red-color);
+}
+/***for profile achievements**/
+.easy-text, .average-text, .hard-text{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+}
+
+body {
+    background-image: url("../../Image/girlBG.png");
+    background-position: center;
+    background-size: cover;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+/********star design*******/
+.star-container {
+    display: flex;
+    align-items: center;
+    padding: 5px 5px;
+    border: 1px solid black;
+    border-radius: 10px;
+    background-color: #9DD9F3;
+}
+.star-item {
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+.star-icon {
+    width: 28px; 
+    height: auto; 
+    margin-right: 10px;
+}
+.star-text {
+    font-size: 25px;
+    color: var(--yellow-color);
+    -webkit-text-stroke: 0.8px black;
+}
+
+/******theme & menu******/
+.girl-icon{
+    width: 70px;
+    height: auto;
+}
+.menu-icon{
+    cursor: pointer;
+    width: 30px;
+    height: auto;
+    margin-right: 50px;
+}
+
+/*******profile*******/
+.main-profile {
+    padding: 100px;
+    text-align: left;
+    width: 60%;
+    height: auto;
+    margin-top: 2%;
+}
+
+.profile-pic h1{
+    text-align: center;
+    margin-bottom: 15px;
+}
+.content-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+.profile-pic img {
+    width: 300px;
+    height: auto;
+    margin-right: 20px;
+}
+.username{
+    margin-bottom: 30px;
+}
+.badges h3, .profile-pic h1{
+    color: var(--blue-color);
+    margin-bottom: 5px;
+}
+.badges {
+    margin-top: 10px;
+}
+.badge-container {
+    background-color: var(--blue-color);
+    border-radius: 15px;
+    display: flex;
+    gap: 30px;
+    padding: 10px;
+    flex-wrap: wrap;
+    align-items: center;
+    width: auto; 
+    box-sizing: border-box;
+}
+.container {
+    padding: 7px;
+    text-align: center;
+    max-width: 300px;
+    width: 20%;
+    transition: transform 0.3s;
+    color: var(--yellow-color);
+}
+.container:hover{
+    transform: scale(1.05);
+}
+.container-image {
+    width: 80%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+.star{
+    width: 25px;
+    height: auto;
+}
+.text-with-star {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.text-with-star h2 {
+    margin: 0;
+    margin-right: 5px;
+}
+
+/* badge* Modal container */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+/* Modal content */
+.modal-content {
+    background-color: var(--white-color);
+    margin: 15% auto;
+    padding: 20px;
+    border-radius: 10px;
+    width: 30%;
+    text-align: center;
+}
+/* Close button */
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+}
+/**unlock pop up**/
+#unlockButton{
+    border: none;
+    padding: 15px 15px;
+    font-size: 1.2em;
+    color: white;
+    background-color:var(--red-color);
+    border-radius: 10px;
+    margin-top: 40px;
+    cursor: pointer;
+    transition: background-color 0.25s;
+}
+#unlockButton:hover{
+    filter: brightness(0.80);
+}
+
+/* Popup container with animation */
+.custom-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0.5);
+    background-color: var(--white-color);
+    border: 2px solid var(--red-color);
+    border-radius: 10px;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    opacity: 0;
+    animation: popupFadeIn 0.3s ease-out forwards;
+}
+
+.custom-popup p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+.custom-popup button {
+    background-color: #ffcc00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+.custom-popup button:hover {
+    background-color: #e6b800;
+}
+
+/* Fade-in and scale-up animation */
+@keyframes popupFadeIn {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    100% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Fade-out animation for when popup is removed */
+@keyframes popupFadeOut {
+    0% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+}
+
+/**assessment history***/
+.assessment-history{
+    color: white;
+    background-color: #d31ca5;
+    border-radius: 15px;
+    padding: 15px;
+    margin-bottom: 30px;
+}
+.assessment-history h3{
+    text-align: center;
+    margin-bottom: 7px;
+}
+.table-container {
+    max-height: 300px; /* Set height to limit visible rows (adjust as needed) */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ccc; /* Optional: Add a border around the scrollable area */
+    border-radius: 8px; /* Optional: Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better appearance */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #4c0080;
+}
+
+th {
+    background-color: #d320da; /* Light gray for headers */
+    font-weight: bold;
+}
+
+tr:hover {
+    background-color: #f837ff; /* Highlight row on hover */
+}
+.footer{
+    margin-top: 20px;
+}
+
+
+/********star design*******/
+.star-container {
+    background-color: #FEA8FF;
+}
+/******theme & menu******/
+.girl-icon{
+    width: 70px;
+    height: auto;
+}
+.menu-icon{
+    width: 30px;
+    height: auto;
+}
+/*******profile*******/
+.profile-pic img {
+    width: 300px;
+    height: auto;
+    margin-right: 20px;
+}
+.username{
+    margin-bottom: 30px;
+}
+.badge-container {
+    background-color: #d31ca5;
+}
+.badges h3, .profile-pic h1{
+    font-size: 30px;
+    color: white;
+    margin-bottom: 5px;
+    -webkit-text-stroke: 0.8px black;
+}
+.profile-pic h1{
+    font-size: 50px;
+}
