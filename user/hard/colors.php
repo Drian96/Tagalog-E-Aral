@@ -6,7 +6,7 @@ if ($conn->connect_error) {
 }
 
 $page_value = 3;
-$stars_value = 2; // Add starsValue condition stars value means difficulty value of that obj
+$stars_value = 1; // Add starsValue condition stars value means difficulty value of that obj
 $sql = "SELECT * FROM learn WHERE pageValue = $page_value AND starsValue = $stars_value";
 $result = $conn->query($sql);
 ?>
@@ -16,7 +16,7 @@ $result = $conn->query($sql);
 <body>
     <header>
         <div class="mini-title">
-            <a href="averageModule.php">
+            <a href="easyModule.php">
                 <div class="title-content">
                     <img src="../../image/backArrow.png" alt="back-button">
                     <h1>Tagalog E-Aral</h1>

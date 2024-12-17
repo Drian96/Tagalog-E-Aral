@@ -11,6 +11,7 @@ if (!isset($_SESSION['id'])) {
 // Get the total score/stars from the session (from the quiz)
 $totalStarsEarned = $_SESSION['total_score']; // Assuming total_score contains the stars earned in the quiz
 $userId = $_SESSION['id'];
+$totalQuestions = 6; // Total number of questions in the quiz
 
 // Update the totalStars in the database
 $updateStarsQuery = "UPDATE users SET totalStars = totalStars + ? WHERE Id = ?";
@@ -31,7 +32,7 @@ if ($totalStarsEarned <= 3) {
     $levelMessage = "Welcome to Average Level";
     $difficultyLevel = 'average';
 } else {
-    $nextPage = "../../user/hard/hard.php";
+    $nextPage = "../../user/hard/hardMain.php";
     $levelMessage = "Welcome to Hard Level";
     $difficultyLevel = 'hard';
 }
@@ -83,7 +84,7 @@ $stmt->execute();
 <body>
     <div class="quiz-result-container">
         <h1>Knowledge Check Completed!</h1>
-        <p>Your score is <strong><?php echo $totalStarsEarned; ?>/10</strong>.</p>
+        <p>Your score is <strong><?php echo $totalStarsEarned . '/' . $totalQuestions; ?></strong>.</p>
         <p><strong><?php echo $levelMessage; ?></strong></p>
         <p>You earned <strong><?php echo $totalStarsEarned; ?></strong> stars!</p>
         <p>Your total stars: <strong><?php echo $_SESSION['totalStars']; ?></strong></p>

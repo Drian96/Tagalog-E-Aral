@@ -55,7 +55,6 @@ header{
 /********star design*******/
 .star-container {
     margin-top: 10px;
-    margin-right: 15%;
     display: flex;
     align-items: center;
     padding: 5px 5px;
@@ -187,58 +186,27 @@ header{
     color: var(--red-color);
 
 }
-
-.choices {
-    position: absolute;
-    bottom: 0;
-    margin-bottom: 1px;
-    width: 100%;
+/**Daily Quiz Result***/
+.dqResult {
     text-align: center;
-}
-.choices button {
-    width: 32%;
-    margin: 0 1px;
-    padding: 30px;
-    border-radius: 10px;
-    border: none;
-    transition: transform 0.5s, background-color 0.25s;
-}
-.choices button:hover {
-    transform: scale(1.02);
-    filter: brightness(0.80);
-}
-.choice-btn1 {
-    background-color: var(--blue-color);
-}
-.choice-btn2 {
-    background-color: var(--red-color);
-}
-.choice-btn3 {
-    background-color: #10c510;
-}
-.choice-btn1 h2, .choice-btn2 h2, .choice-btn3 h2 {
-    color: white;
-}
-
-#popup {
-    display: none;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin: 50px auto;
     padding: 20px;
-    background: #fff;
-    border: 2px solid #000;
-    text-align: center;
-    z-index: 1000;
-    font-size: 1.2rem;
-    font-weight: bold;
+    border: 2px solid #ddd;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 400px;
+    background-color: white;
 }
-
-#popup.correct {
-    color: green;
+.dqResult button {
+    border: none;
+    padding: 15px 20px;
+    font-size: 1.5em;
+    color: white;
+    background-color:var(--red-color);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.25s;
 }
-
-#popup.wrong {
-    color: red;
+.dqResult button:hover{
+    filter: brightness(0.80);
 }

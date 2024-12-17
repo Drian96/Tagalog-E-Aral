@@ -11,10 +11,16 @@ $questions = $_SESSION['quiz_questions'];
 $currentIndex = $_SESSION['current_question_index'];
 $currentQuestion = $questions[$currentIndex];
 
+// Initialize correct answers if not set
+if (!isset($_SESSION['correct_answers'])) {
+    $_SESSION['correct_answers'] = 0;
+}
+
 // Validate choice
 $userChoice = isset($_GET['choice']) ? intval($_GET['choice']) : null;
 if ($userChoice === intval($currentQuestion['correctChoice'])) {
     $_SESSION['total_score'] += intval($currentQuestion['starsValue']); // Add stars if correct
+    $_SESSION['correct_answers']++; // Increment correct answers count
 }
 
 // Move to the next question
