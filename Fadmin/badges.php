@@ -48,13 +48,12 @@ include("../p/db.php");
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="badges.php" class="sidebar-link">
+                    <a href="badges.php" class="sidebar-link active">
                         <i class="lni lni-crown"></i>
                         <span>Badges</span>
                     </a>
                 </li>
             </ul>
-
         </aside>
 
         <div class="main">
@@ -84,45 +83,30 @@ include("../p/db.php");
             </div>
 
             <div class="content">
-                <h2>Guide</h2>
-                <div class="dashboard-card">
-                    <div class="card">
-                        <h4>Category</h4>
-                        <h5>1 = Letters | 2 = Numbers | 3 = Colors <br> 4 = Explore | 5 = Animals</h5>
-                    </div>
-
-                    <div class="card">
-                        <h4>Difficulty Level</h4>
-                        <h5>1 = Easy | 2 = Average | 3 = Hard</h5>
-                    </div>
-                </div>
-
-                <h2>Learn</h2>
+                <h2>Badges</h2>
                 <div style="overflow-x:auto;">
                     <table id="posts">
                         <thead>
                             <tr>
-                                <th style="width:5%">ID</th>
-                                <th style="width:30%">Name</th>
-                                <th style="width:30%">Category</th>
-                                <th style="width:30%">Difficulty Level</th>
+                                <th style="width:15%">ID</th>
+                                <th style="width:40%">Name</th>
+                                <th style="width:40%">Required Stars</th>
                                 <th style="width:5%">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $query = "SELECT id, name, pageValue, starsValue FROM learn";
+                            $query = "SELECT id, name, requiredStars FROM badges";
                             $result = mysqli_query($conn, $query);
 
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo "<tr>";
                                 echo "<td>{$row['id']}</td>";
                                 echo "<td>{$row['name']}</td>";
-                                echo "<td>{$row['pageValue']}</td>";
-                                echo "<td>{$row['starsValue']}</td>";
+                                echo "<td>{$row['requiredStars']}</td>";
                                 echo "<td>
-                                    <a href='edit_learn.php?id={$row['id']}' class='btn btn-edit'>Edit</a>
-                                    <a href='delete_learn.php?id={$row['id']}' class='btn btn-delete' onclick=\"return confirm('Are you sure you want to delete this record?');\">Delete</a>
+                                    <a href='edit_badge.php?id={$row['id']}' class='btn btn-edit'>Edit</a>
+                                    <a href='delete_badge.php?id={$row['id']}' class='btn btn-delete' onclick=\"return confirm('Are you sure you want to delete this badge?');\">Delete</a>
                                 </td>";
                                 echo "</tr>";
                             }

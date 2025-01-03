@@ -55,6 +55,7 @@ include("../p/db.php");
                 </li>
             </ul>
 
+
         </aside>
 
         <div class="main">
@@ -72,6 +73,7 @@ include("../p/db.php");
                             <a href="#">
                                 <div class="menu">
                                     <img class="avatar" src="../image/account.png" alt="menu-icon" onclick="toggleMenu()"/>
+                                    <!-- Dropdown Menu -->
                                     <div class="dropdown-menu" id="profileMenu">
                                         <a href="../login/edit.php">Edit Profile</a>
                                         <a href="../p/logout.php">Logout</a>
@@ -84,45 +86,32 @@ include("../p/db.php");
             </div>
 
             <div class="content">
-                <h2>Guide</h2>
-                <div class="dashboard-card">
-                    <div class="card">
-                        <h4>Category</h4>
-                        <h5>1 = Letters | 2 = Numbers | 3 = Colors <br> 4 = Explore | 5 = Animals</h5>
-                    </div>
-
-                    <div class="card">
-                        <h4>Difficulty Level</h4>
-                        <h5>1 = Easy | 2 = Average | 3 = Hard</h5>
-                    </div>
-                </div>
-
-                <h2>Learn</h2>
+                <h2>Users</h2>
                 <div style="overflow-x:auto;">
                     <table id="posts">
                         <thead>
                             <tr>
                                 <th style="width:5%">ID</th>
-                                <th style="width:30%">Name</th>
-                                <th style="width:30%">Category</th>
-                                <th style="width:30%">Difficulty Level</th>
-                                <th style="width:5%">Actions</th>
+                                <th style="width:30%">Username</th>
+                                <th style="width:30%">Email</th>
+                                <th style="width:30%">Stars</th>
+                                <th style="width:15%">Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $query = "SELECT id, name, pageValue, starsValue FROM learn";
+                            $query = "SELECT Id, Username, Email, totalStars FROM users";
                             $result = mysqli_query($conn, $query);
 
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo "<tr>";
-                                echo "<td>{$row['id']}</td>";
-                                echo "<td>{$row['name']}</td>";
-                                echo "<td>{$row['pageValue']}</td>";
-                                echo "<td>{$row['starsValue']}</td>";
+                                echo "<td>{$row['Id']}</td>";
+                                echo "<td>{$row['Username']}</td>";
+                                echo "<td>{$row['Email']}</td>";
+                                echo "<td>{$row['totalStars']}</td>";
                                 echo "<td>
-                                    <a href='edit_learn.php?id={$row['id']}' class='btn btn-edit'>Edit</a>
-                                    <a href='delete_learn.php?id={$row['id']}' class='btn btn-delete' onclick=\"return confirm('Are you sure you want to delete this record?');\">Delete</a>
+                                    <a href='edit_user.php?id={$row['Id']}' class='btn btn-edit'>Edit</a>
+                                    <a href='delete_user.php?id={$row['Id']}' class='btn btn-delete' onclick=\"return confirm('Are you sure you want to delete this user?');\">Delete</a>
                                 </td>";
                                 echo "</tr>";
                             }

@@ -286,25 +286,30 @@ header{
     display: flex;
 }
 
-
+/*start assessment button*/
+.start{
+    height: 350px;
+    width: 350px;
+    background-color: var(--red-color);
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    transition: transform 0.2s;
+}
+.start:hover {
+    transform: scale(1.05);
+}
+.start h1{
+    color: var(--white-color);
+}
 
 /*mobile*/
-@media (max-width: 430px){
-    .mini-title {
-        margin-left: 5%;
-    }
-    .mini-title .title-content {
-        display: flex;
-        align-items: center; 
-        gap: 10px;
-        margin-left: 100%;
-    } 
+@media (max-width: 480px){
+
     .mini-title h1 {
         display: none;
-        color: var(--yellow-color);
-        -webkit-text-stroke: 0.8px black;
-        margin: 0; 
-        font-size: 25px;
     }
     .mini-title img {
         margin-top: 5px;
@@ -312,7 +317,6 @@ header{
         height: auto;
     }
     .star-container {
-        margin-left: 30%;
         display: flex;
         align-items: center;
         padding: 5px 5px;
@@ -322,8 +326,8 @@ header{
     .star-item {
         display: flex;
         align-items: center;
-        margin-left: 15px;
-        margin-right: 15px;
+        margin-left: 10px;
+        margin-right: 10px;
     }
     .star-icon {
         width: 20px; 
@@ -331,15 +335,14 @@ header{
         margin-right: 5px;
     }
     .star-text {
-        font-size: 25px;
+        font-size: 23px;
         color: var(--yellow-color);
         -webkit-text-stroke: 0.8px black;
     }
     /******profile design******/
     .profile{
         display: flex;
-        align-items: center;
-        margin-left: 100%;    
+        align-items: center; 
     }
     .profile h2{
         display: none;
@@ -361,5 +364,25 @@ header{
         flex-wrap: wrap;
         justify-content: center;
         align-items: center;
+    }
+ 
+    /*start assessment button*/
+    .start{
+        height: 250px;
+        width: 250px;
+        background-color: var(--red-color);
+        border-radius: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        transition: transform 0.2s;
+    }
+    .start:hover {
+        transform: scale(1.05);
+    }
+    .start h1{
+        font-size: 25px;
+        color: var(--white-color);
     }
 }

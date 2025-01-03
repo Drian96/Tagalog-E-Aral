@@ -1,7 +1,6 @@
 <?php include ('head.php')?> 
 
 <body>
-    
     <div class="container">
         <div class="box form-box">
 
@@ -35,8 +34,8 @@
                           </div> <br>";
                     echo "<a href='javascript:self.history.back()'><button class='btn'>Go Back</button>";
                 } else {
-                    // Password validation (must contain at least one uppercase letter and one number)
-                    if(preg_match('/^(?=.*[A-Z])(?=.*\d).+$/', $password)){
+                    // Password validation: minimum 5 characters, at least one uppercase letter and one number
+                    if(strlen($password) >= 5 && preg_match('/^(?=.*[A-Z])(?=.*\d).+$/', $password)){
                         // Hash the password using bcrypt
                         $hashed_password = password_hash($password, PASSWORD_BCRYPT);
                         $verificationCode = rand(100000, 999999); // Generate a random 6-digit code
@@ -85,7 +84,7 @@
 
                     } else {
                         echo "<div class='message'>
-                                  <p>Password must contain at least one uppercase letter and one number!</p>
+                                  <p>Password must be at least 5 characters long, contain at least one uppercase letter, and one number!</p>
                               </div> <br>";
                         echo "<a href='javascript:self.history.back()'><button class='btn'>Go Back</button>";
                     }
@@ -133,7 +132,27 @@
 
     </div>
 
-    <script src="login.js"></script>
+    <script>
+        function togglePassword(id) {
+            const passwordField = document.getElementById(id);
+            const type = passwordField.type === "password" ? "text" : "password";
+            passwordField.type = type;
+        }
 
+        // Client-side password validation
+        const passwordInput = document.getElementById("password");
+        const passwordWarning = document.getElementById("password-warning");
+
+        passwordInput.addEventListener("input", () => {
+            const password = passwordInput.value;
+            if (password.length < 5) {
+                passwordWarning.textContent = "Password must be at least 5 characters.";
+            } else if (!/[A-Z]/.test(password) || !/\d/.test(password)) {
+                passwordWarning.textContent = "Password must contain at least one uppercase letter and one number.";
+            } else {
+                passwordWarning.textContent = "";
+            }
+        });
+    </script>
 </body>
 </html>

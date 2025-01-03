@@ -1,5 +1,6 @@
 <?php include('header.php')?>
 
+<!--
 <style>
     /***badge upload********/
     form {
@@ -58,23 +59,44 @@
         outline: none;
         box-shadow: 0 0 5px var(--blue-color);
     }
-</style>
+</style>-->
+
+    <header>
+        <div class="mini-title">
+            <a href="upload.php">
+                <div class="title-content">
+                    <img src="../image/backArrow.png" alt="back-button">
+                    <h1>Back</h1>
+                </div>
+            </a>
+        </div>
+    </header>
 
 <body>
-    <div class = upload>
 
-        <form action="uploadBadge.php" method="POST" enctype="multipart/form-data">
-            <label for="name">Badge Name:</label>
-            <input type="text" name="name" id="name" required>
+    <div class="upload">
+        <div class="upload-menu" id="uploadMenu">
+            <form action="uploadBadge.php" method="POST" enctype="multipart/form-data">
 
-            <label for="requiredStars">Required Stars:</label>
-            <input type="number" name="requiredStars" id="requiredStars" required>
+                <div class="badgeName">
+                    <label for="name">Badge Name:</label>
+                    <input type="text" name="name" id="name" required>
+                </div>
+                <br>
 
-            <label for="image">Badge Image:</label>
-            <input type="file" name="image" id="image" accept="image/*" required>
+                <div class="correctChoice">
+                    <label for="requiredStars">Required Stars:</label>
+                    <input type="number" name="requiredStars" id="requiredStars" required>
+                </div>
+                <br>
 
-            <button type="submit">Upload Badge</button>
-        </form>
+                <label for="image">Badge Image:</label>
+                <input type="file" name="image" id="image" accept="image/*" required>
+                <br>
+
+                <button type="submit">Upload Badge</button>
+            </form>
+        </div>
     </div>
 </body>
 </html>

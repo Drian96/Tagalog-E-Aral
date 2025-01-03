@@ -57,7 +57,7 @@ if ($totalStars === 0) {
 
     <a href="quiz.php">
         <div class="start">
-            <h1>Start Assessment!</h1>
+            <h1>Start Knowledge Check!</h1>
         </div>
     </a>
     <script src="profile.js"></script>

@@ -54,7 +54,13 @@ include("../p/db.php");
                     </a>
                 </li>
             </ul>
-
+            <!--
+            <div class="sidebar-footer">
+                <a href="#" class="sidebar-link">
+                    <i class="lni lni-exit"></i>
+                    <span>Logout</span>
+                </a>
+            </div> -->
         </aside>
 
         <div class="main">
@@ -84,45 +90,39 @@ include("../p/db.php");
             </div>
 
             <div class="content">
-                <h2>Guide</h2>
-                <div class="dashboard-card">
-                    <div class="card">
-                        <h4>Category</h4>
-                        <h5>1 = Letters | 2 = Numbers | 3 = Colors <br> 4 = Explore | 5 = Animals</h5>
-                    </div>
 
-                    <div class="card">
-                        <h4>Difficulty Level</h4>
-                        <h5>1 = Easy | 2 = Average | 3 = Hard</h5>
-                    </div>
-                </div>
-
-                <h2>Learn</h2>
+                <h2>Questions</h2>
                 <div style="overflow-x:auto;">
                     <table id="posts">
                         <thead>
                             <tr>
                                 <th style="width:5%">ID</th>
-                                <th style="width:30%">Name</th>
-                                <th style="width:30%">Category</th>
-                                <th style="width:30%">Difficulty Level</th>
+                                <th style="width:30%">Question Text</th>
+                                <th style="width:10%">Choice 1</th>
+                                <th style="width:10%">Choice 2</th>
+                                <th style="width:10%">Choice 3</th>
+                                <th style="width:10%">Correct Choice</th>
+                                <th style="width:10%">Stars Value</th>
                                 <th style="width:5%">Actions</th>
                             </tr>
                         </thead>
                         <tbody>
                             <?php
-                            $query = "SELECT id, name, pageValue, starsValue FROM learn";
+                            $query = "SELECT id, questionText, choice1, choice2, choice3, correctChoice, starsValue FROM questions";
                             $result = mysqli_query($conn, $query);
 
                             while ($row = mysqli_fetch_assoc($result)) {
                                 echo "<tr>";
                                 echo "<td>{$row['id']}</td>";
-                                echo "<td>{$row['name']}</td>";
-                                echo "<td>{$row['pageValue']}</td>";
+                                echo "<td>" . htmlspecialchars($row['questionText']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['choice1']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['choice2']) . "</td>";
+                                echo "<td>" . htmlspecialchars($row['choice3']) . "</td>";
+                                echo "<td>{$row['correctChoice']}</td>";
                                 echo "<td>{$row['starsValue']}</td>";
                                 echo "<td>
-                                    <a href='edit_learn.php?id={$row['id']}' class='btn btn-edit'>Edit</a>
-                                    <a href='delete_learn.php?id={$row['id']}' class='btn btn-delete' onclick=\"return confirm('Are you sure you want to delete this record?');\">Delete</a>
+                                    <a href='edit_question.php?id={$row['id']}' class='btn btn-edit'>Edit</a>
+                                    <a href='delete_question.php?id={$row['id']}' class='btn btn-delete' onclick=\"return confirm('Are you sure you want to delete this question?');\">Delete</a>
                                 </td>";
                                 echo "</tr>";
                             }

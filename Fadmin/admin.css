@@ -179,13 +179,13 @@ a.sidebar-link:hover {
 }
 
 .title {
-    font-size: 1.25rem;
+    font-size: 2rem;
     font-weight: 600;
 }
 
 .amount {
     font-weight: 400;
-    font-size: 1rem;
+    font-size: 1.50rem;
 }
 
 .card:hover {
@@ -237,6 +237,7 @@ a.sidebar-link:hover {
 header{
     position: fixed;
     width: 100%;
+    margin-top: 2px;
     top: 0;
     right: 0;
     z-index: 1000;
@@ -265,8 +266,20 @@ header{
     width: 50px;
     height: auto;
 }
+/*users knowledge widget*/
+#knowledgeChart{
+    max-width: 300;
+    max-height: 150;
+}
 
-/* Main Container for learn and challenge*/
+/*detailed-report*/
+.knowdledgeTitle{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 5%;
+}
+/*upload.php*/
 .uploadMain-container {
     height: 100vh;
     display: flex;
@@ -277,6 +290,8 @@ header{
     align-items: center;
 }
 .uploadContainer {
+    background-color: var(--white-color);
+    border-radius: 15px;
     padding: 20px;
     text-align: center;
     max-width: 300px;
@@ -356,13 +371,18 @@ header{
     text-align: center;
     margin-left: 40%;
 }
+
 /*upload challenge*/
+.choice-group{
+    margin-bottom: 10px;
+}
 .choice-group input[type="text"] {
     width: 150px;
-    height: 50px;
+    height: 45px;
     padding: 7px;
     font-size: 15px;
 }
+
 .upload-menu button{
     width: 100px;
     height: 40px;
@@ -370,12 +390,86 @@ header{
     align-items: center;
     margin-left: 40%;
 }
+.correctChoice input{
+    margin-top: 5px;
+    width: 150px;
+    height: 45px;
+    padding: 7px;
+    font-size: 15px;
+}
 
+/**badges**/
+.badgeName input[type="text"] {
+    width: 160px;
+    height: 55px;
+    padding: 7px;
+    font-size: 15px;
+}
 
+/***users.php***/
+    /* Buttons */
+    .btn {
+        width: 80px;
+        text-decoration: none;
+        padding: 8px 16px;
+        border-radius: 4px;
+        font-size: 14px;
+        font-weight: bold;
+        display: inline-block;
+        text-align: center;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+    }
+    
+    .btn-edit {
+        background-color: var(--blue-color);
+        color: white;
+    }
+    
+    .btn-edit:hover {
+        background-color: rgb(39, 71, 248);
+    }
+    
+    .btn-delete {
+        background-color: var(--red-color);
+        color: white;
+    }
+    
+    .btn-delete:hover {
+        background-color: darkred;
+    }
 
+/*edit_user.php*/
+.emailInput input{
+    height: 50px;
+    width: 300px;
+    border-radius: 5px;
+}
 
+/***learn.php***/
+.guide{
+    background-color: var(--blue-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.category{
+    background-color: var(--white-color);
+    width: auto;
+    height: 100px;
+    gap: 10px;
+    
+}
 
+/**edit_question.php**/
+.qText input{
+    margin-top: 5px;
+    width: 400px;
+    height: 80px;
+    padding: 7px;
+    font-size: 17px;
+}
 
 
 

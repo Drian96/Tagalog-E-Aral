@@ -62,6 +62,13 @@ $stmt->close();
                 <button class="challenge-button">Challenge<br>(Pagsubok)</button>
             </a>
         </div>
+
+        <a href="../../user/quiz/initQuiz.php">
+        <div class="start">
+            <h1>Retry Knowledge Check!</h1>
+        </div>
+        </a>
+
     </div>
     
 </body>

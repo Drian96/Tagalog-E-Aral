@@ -7,7 +7,7 @@
             <a href="main.php">
                 <div class="title-content">
                     <img src="../image/backArrow.png" alt="back-button">
-                    <h1>Tagalog E-Aral Admin</h1>
+                    <h1>Back</h1>
                 </div>
             </a>
         </div>

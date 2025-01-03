@@ -7,7 +7,7 @@
             <a href="upload.php">
                 <div class="title-content">
                     <img src="../image/backArrow.png" alt="back-button">
-                    <h1>Tagalog E-Aral Admin</h1>
+                    <h1>Back</h1>
                 </div>
             </a>
         </div>
@@ -23,11 +23,11 @@
 
                 <label for="image">Select Image:</label>
                 <input type="file" name="image" id="image" required>
-                <br><br>
+                <br>
 
                 <label for="audio">Select Audio:</label>
                 <input type="file" name="audio" id="audio" required>
-                <br><br>
+                <br>
 
                 <label for="page_value">Upload Location:</label>
                 <select name="page_value" id="page_value" required>
@@ -37,11 +37,13 @@
                     <option value="4">Explore</option>
                     <option value="5">Animals</option>
                 </select>
-
                 <br><br>
+
+                <div class="correctChoice">
                 <label>Stars Value (1 to 3):</label>
                 <input type="number" name="starsValue" min="1" max="3" required><br><br>
-                
+                </div>
+
                 <br><br>
                 <div class="uploadButton">
                     <input type="submit" value="Upload">

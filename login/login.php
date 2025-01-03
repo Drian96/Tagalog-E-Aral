@@ -69,6 +69,7 @@
         <div class="field input">
             <label for="password">Password</label>
             <input type="password" name="password" id="password" autocomplete="off" required>
+            <span class="toggle-password" onclick="togglePassword('password')">👁️</span>
         </div>
 
         <div class="field">
@@ -81,6 +82,6 @@
 </div>
 <?php } ?>
 </div>
-
+<script src="login.js"></script>
 </body>
 </html>

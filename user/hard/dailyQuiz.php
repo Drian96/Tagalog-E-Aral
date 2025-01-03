@@ -28,46 +28,6 @@ $currentQuestion = $questions[$currentIndex];
     <title>Daily Quiz</title>
     <style>
         <?php include("quiz.css"); ?>
-        .choices {
-            position: absolute;
-            bottom: 0;
-            margin-bottom: 1px;
-            width: 100%;
-            text-align: center;
-        }
-        .choices button {
-            width: 32%;
-            margin: 0 1px;
-            padding: 30px;
-            border-radius: 10px;
-            border: none;
-            transition: transform 0.5s, background-color 0.25s;
-        }
-        .choices button:hover {
-            transform: scale(1.02);
-            filter: brightness(0.80);
-        }
-        .choice-btn1 { background-color: var(--blue-color); }
-        .choice-btn2 { background-color: var(--red-color); }
-        .choice-btn3 { background-color: #10c510; }
-        .choice-btn1 h2, .choice-btn2 h2, .choice-btn3 h2 { color: white; }
-
-        #popup {
-            display: none;
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            padding: 20px;
-            background: #fff;
-            border: 2px solid #000;
-            text-align: center;
-            z-index: 1000;
-            font-size: 1.2rem;
-            font-weight: bold;
-        }
-        #popup.correct { color: green; }
-        #popup.wrong { color: red; }
     </style>
     <script>
         function checkAnswer(selectedChoice) {

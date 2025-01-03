@@ -327,11 +327,11 @@ body {
     margin-bottom: 7px;
 }
 .table-container {
-    max-height: 300px; /* Set height to limit visible rows (adjust as needed) */
+    max-height: 300px;
     overflow-y: auto; /* Enable vertical scrolling */
-    border: 1px solid #ccc; /* Optional: Add a border around the scrollable area */
-    border-radius: 8px; /* Optional: Rounded corners */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: Add a shadow for better appearance */
+    border: 1px solid #ccc; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
 }
 
 table {
@@ -353,3 +353,113 @@ th {
 tr:hover {
     background-color: #00c3ff; /* Highlight row on hover */
 }
+
+/*mobile*/
+@media (max-width: 480px){
+
+    .mini-title h1 {
+        display: none;
+    }
+    .mini-title img {
+        margin-top: 5px;
+        width: 50px;
+        height: auto;
+    }
+    .star-container {
+        display: flex;
+        align-items: center;
+        padding: 5px 5px;
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+    .star-item {
+        display: flex;
+        align-items: center;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .star-icon {
+        width: 20px; 
+        height: auto; 
+        margin-right: 5px;
+    }
+    .star-text {
+        font-size: 23px;
+        color: var(--yellow-color);
+        -webkit-text-stroke: 0.8px black;
+    }
+    .girl-icon{
+        width: 65px;
+        height: auto;
+    }
+    .menu-icon{
+        margin-right: 60px;
+    }
+    .dropdown-menu {
+        left: 70%;
+    }
+
+    /*main profile*/
+    .main-profile {
+        width: 60%;
+        height: auto;
+        margin-top: 2%;
+    }
+    .content-wrapper {
+        flex-direction: column;
+    }
+    .profile-pic img {
+        width: 100px;
+        height: auto;
+        margin-right: 20px;
+    }
+
+    .badge-container {
+        width: 340px; 
+    }
+    .text-with-star h2{
+        font-size: 20px;
+    }
+    .text-with-star img{
+        width: 20px;
+        height: auto;
+    }
+
+    /*history*/
+    .assessment-history {
+        margin-left: -50px;
+        width: 322px;
+        padding: 10px; /* Reduce padding */
+        margin-bottom: 15px; /* Reduce margin */
+        border-radius: 10px; /* Smaller border radius */
+    }
+
+    .assessment-history h3 {
+        font-size: 1rem; /* Reduce font size */
+        margin-bottom: 5px; /* Reduce spacing */
+    }
+
+    .table-container {
+        max-height: 200px; /* Adjust table height */
+        border-radius: 5px; /* Smaller border radius */
+        box-shadow: none; /* Simplify shadow for smaller screens */
+    }
+
+    table {
+        font-size: 0.8rem; /* Reduce table font size */
+    }
+
+    th, td {
+        padding: 5px; /* Reduce cell padding */
+    }
+
+    th {
+        font-size: 0.8rem; /* Slightly larger for headers */
+    }
+
+    td {
+        font-size: 0.7rem; /* Adjust font size for data */
+    }
+
+}
+   

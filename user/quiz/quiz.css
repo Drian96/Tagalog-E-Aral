@@ -118,6 +118,7 @@ header{
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     transition: transform 0.2s;
 }
 .start:hover {
@@ -241,4 +242,67 @@ header{
 
 #popup.wrong {
     color: red;
+}
+
+@media screen and (max-width: 480px) {
+
+    header{
+        padding: 12px 4%;
+    }
+    .mini-title h2{
+        font-size: 20px;
+    }
+    .star-container {
+        margin-right: 8%;
+    }
+    .star-item {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+    .star-icon {
+        width: 20px; 
+        height: auto; 
+        margin-right: 10px;
+    }
+    .star-text {
+        font-size: 20px;
+    }
+
+    .mini-title h1{
+        font-size: 35px;
+    }
+
+    .quiz-container {
+        position: relative;
+        width: 80%;
+        height: 70%;
+        text-align: center;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 0 10px var(--white-color);
+    }
+    /*****question*****/
+    .question {
+        padding: 10px;
+    }
+    .question p {
+        margin: 10px;
+        font-size: 25px;
+    }
+    /*****question image****/
+    .image-container {
+        height: 40%;
+    }
+
+    .choices button {
+        width: 31%;
+    }
+    
+    .choices h2{
+        font-size: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
 }
