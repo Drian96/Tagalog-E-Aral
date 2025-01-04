@@ -13,6 +13,18 @@ $result = $conn->query($sql);
 
 <?php include('moduleHead.php')?>
 
+<style>
+    body {
+    background-image: url("../../Image/abc.png");
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+</style>
+
 <body>
     <header>
         <div class="mini-title">

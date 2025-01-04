@@ -15,7 +15,7 @@ $result = $conn->query($sql);
 
 <style>
     body {
-    background-image: url("../../Image/abc.png");
+    background-image: url("../../Image/lettersBG.png");
     background-position: center;
     background-size: cover;
     height: 100vh;
