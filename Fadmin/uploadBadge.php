@@ -43,7 +43,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if ($stmt) {
             $stmt->bind_param("sis", $name, $requiredStars, $imagePath);
             if ($stmt->execute()) {
-                echo "Badge uploaded successfully!";
+                echo 'Badge uploaded successfully! <a href="uploadChallenge.php"><button>Go Back</button></a>';
             } else {
                 echo "Error inserting badge into the database: " . $stmt->error;
             }

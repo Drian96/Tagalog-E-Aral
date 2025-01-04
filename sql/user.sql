@@ -93,7 +93,15 @@ CREATE TABLE users (
     createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     totalStars INT DEFAULT 0
 );
-
+CREATE TABLE learn (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(55) NOT NULL,
+    imagePath VARCHAR(255) NOT NULL,   -- Path to image in /uploads/learn/images
+    audioPath VARCHAR(255) NOT NULL,   -- Path to audio in /uploads/learn/audio
+    pageValue INT NOT NULL,
+    starsValue INT CHECK (starsValue BETWEEN 1 AND 3)
+    createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 -- Create the questions table
 CREATE TABLE questions (
     id INT AUTO_INCREMENT PRIMARY KEY,
